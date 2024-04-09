@@ -21,7 +21,7 @@ jobs:
       - name: Set permissions for working directory __w
         run: chmod 777 -R /__w
       - name: Build Project
-      - run: 
+        run: 
           cbuild -p -c Demo.Debug+AVH Demo.csolution.yml
       - name: Run Project
         run: 
