@@ -25,4 +25,4 @@ jobs:
           su -l arm_mlops_docker -c "/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/bin/cbuild -p -c Demo.Debug+AVH /__w/AWS_MQTT_MutualAuth_Demo/AWS_MQTT_MutualAuth_Demo/Demo.csolution.yml"
       - name: Run Project
         run: 
-           su -l arm_mlops_docker -c "/home/arm_mlops_docker/avh-fvp-11.22.39/avh-linux-x86/bin/VHT_MPS3_Corstone_SSE-300 -f /__w/AWS_MQTT_MutualAuth_Demo/AWS_MQTT_MutualAuth_Demo/Board/AVH_MPS3_Corstone-300/fvp_config.txt --stat --simlimit 600  /__w/AWS_MQTT_MutualAuth_Demo/AWS_MQTT_MutualAuth_Demo/out/Demo/AVH/Debug/Demo.axf"
+           su -l arm_mlops_docker -c "/home/arm_mlops_docker/avh-fvp-11.22.39/avh-linux-x86/bin/FVP_Corstone_SSE-300 -f /__w/AWS_MQTT_MutualAuth_Demo/AWS_MQTT_MutualAuth_Demo/Board/AVH_MPS3_Corstone-300/fvp_config.txt --stat --simlimit 600  /__w/AWS_MQTT_MutualAuth_Demo/AWS_MQTT_MutualAuth_Demo/out/Demo/AVH/Debug/Demo.axf"
