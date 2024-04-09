@@ -1,0 +1,28 @@
+# YAML schema for GitHub Actions:
+# https://help.github.com/en/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions
+#
+# Helpful YAML parser to clarify YAML syntax:
+# https://yaml-online-parser.appspot.com/
+
+name: Cortex-M on Arm Virtual Hardware
+
+# https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#onschedule
+on: [push, pull_request]
+
+jobs:
+  cortex_m_generic_gcc:
+    runs-on: ubuntu-latest
+    container:
+      # Use the custom Docker image with the necessary tools and dependencies
+      image: ghcr.io/arm-software/avh-mlops/arm-mlops-docker-licensed-community:latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set permissions for working directory __w
+        run: chmod 777 -R /__w
+      - name: Build Project
+      - run: 
+        cbuild -p -c Demo.Debug+AVH Demo.csolution.yml
+      - name: Run Project
+        run: 
+        VHT_MPS3_Corstone_SSE-300 -f Board/AVH_MPS3_Corstone-300/fvp_config.txt --stat --simlimit 600 out/Demo/AVH/Debug/Demo.axf
