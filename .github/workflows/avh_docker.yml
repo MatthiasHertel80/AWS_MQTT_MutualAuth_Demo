@@ -22,7 +22,7 @@ jobs:
         run: chmod 777 -R /__w
       - name: Build Project
         run: 
-          cbuild -p -c Demo.Debug+AVH Demo.csolution.yml
+          su -l arm_mlops_docker -c "cbuild -p -c Demo.Debug+AVH Demo.csolution.yml"
       - name: Run Project
         run: 
           VHT_MPS3_Corstone_SSE-300 -f Board/AVH_MPS3_Corstone-300/fvp_config.txt --stat --simlimit 600 out/Demo/AVH/Debug/Demo.axf
