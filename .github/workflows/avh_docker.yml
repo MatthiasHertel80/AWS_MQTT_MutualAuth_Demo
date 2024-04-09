@@ -10,7 +10,7 @@ name: Cortex-M on Arm Virtual Hardware
 on: [push, pull_request]
 
 jobs:
-  cortex_m_generic_gcc:
+  cortex_m_generic:
     runs-on: ubuntu-latest
     container:
       # Use the custom Docker image with the necessary tools and dependencies
